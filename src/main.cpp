@@ -1,5 +1,6 @@
 #include<iostream>
 #include<gl/GLUT.h>
+#include"coord.h"
 using namespace std;
 
 void display(){
@@ -19,8 +20,8 @@ int main(int argc, char* argv[]){
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
 	glutInitWindowPosition ( 0, 0 ) ;
 	glutInitWindowSize ( 675, 675 ) ;
-	glutCreateWindow( "Tessaract" );
-	glOrtho(-12, 12, -12, 12, 12, -12);
+	glutCreateWindow( "Tesseract" );
+	glOrtho(-200, 200, -200, 200, 200, -200);
 	glRotatef(45, -1, 1, 0);
 	
 	//functions

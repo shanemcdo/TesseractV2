@@ -1,4 +1,4 @@
-all: main.o  coord.o
+all: main.o  coord.o project.o rotate.o
 	g++ bin/*.o -o bin/test.exe -I include -lopenGL32 -lfreeGLUT 
 	@echo
 
@@ -7,6 +7,12 @@ main.o: src/main.cpp
 
 coord.o: src/coord.cpp
 	g++ src/coord.cpp -c -o bin/coord.o -I include -lopenGL32 -lfreeGLUT 
+	
+project.o: src/project.cpp
+	g++ src/project.cpp -c -o bin/project.o -I include -lopenGL32 -lfreeGLUT 
+
+rotate.o: src/rotate.cpp
+	g++ src/rotate.cpp -c -o bin/rotate.o -I include -lopenGL32 -lfreeGLUT 
 
 clean:
 	rm bin/*

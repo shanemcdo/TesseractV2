@@ -9,6 +9,8 @@ void display(){
 }
 
 void kbin(unsigned char key, int x, int y){
+	if(key == '\x1b')//esc key
+		exit(0);
 }
 
 int main(int argc, char* argv[]){

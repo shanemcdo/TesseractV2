@@ -1,10 +1,31 @@
 #include<iostream>
 #include<gl/GLUT.h>
-#include"coord.h"
+#include"project.h"
 using namespace std;
+
+coord c[16]= {
+	{50, 50, 50, 50},
+	{-50, 50, 50, 50}, 
+	{-50, -50, 50, 50}, 
+	{50, -50, 50, 50}, 
+	{50, 50, -50, 50}, 
+	{-50, 50, -50, 50}, 
+	{-50, -50, -50, 50}, 
+	{50, -50, -50, 50}, 
+	{25, 25, 25, -25}, 
+	{-25, 25, 25, -25}, 
+	{-25, -25, 25, -25}, 
+	{25, -25, 25, -25}, 
+	{25, 25, -25, -25}, 
+	{-25, 25, -25, -25}, 
+	{-25, -25, -25, -25}, 
+	{25, -25, -25, -25}, 
+};
 
 void display(){
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );//I do as the sample code says
+	
+	project(c);
 
 	glutSwapBuffers();//I do as sample code commands
 }
@@ -22,6 +43,7 @@ int main(int argc, char* argv[]){
 	glutInitWindowSize ( 675, 675 ) ;
 	glutCreateWindow( "Tesseract" );
 	glOrtho(-100, 100, -100, 100, 100, -100);
+	glRotatef(45, -1, 1, 0);
 	
 	//functions
 	glutDisplayFunc(display);

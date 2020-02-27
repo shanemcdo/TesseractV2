@@ -22,7 +22,7 @@ int main(int argc, char* argv[]){
 	glutInitWindowPosition ( 0, 0 ) ;
 	glutInitWindowSize ( 675, 675 ) ;
 	glutCreateWindow( "Tesseract" );
-	glOrtho(-200, 200, -200, 200, 200, -200);
+	glOrtho(-100, 100, -100, 100, 100, -100);
 	
 	//functions
 	glutDisplayFunc(display);

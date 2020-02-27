@@ -1,4 +1,4 @@
-all: main.o 
+all: main.o  coord.o
 	g++ bin/*.o -o bin/test.exe -I include -lopenGL32 -lfreeGLUT 
 	@echo
 

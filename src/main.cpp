@@ -23,7 +23,6 @@ int main(int argc, char* argv[]){
 	glutInitWindowSize ( 675, 675 ) ;
 	glutCreateWindow( "Tesseract" );
 	glOrtho(-200, 200, -200, 200, 200, -200);
-	glRotatef(45, -1, 1, 0);
 	
 	//functions
 	glutDisplayFunc(display);

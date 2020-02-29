@@ -25,6 +25,9 @@ void cube(coord p[8])
 }//cube
 
 void draw(coord p[16]){
+	//color
+	glColor3f(0.125, 0.698, 667);
+
 	//print both cubes
 	cube(p);
 	cube(p+8);

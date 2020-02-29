@@ -27,7 +27,8 @@ coord c[16]= {
 
 double speed = 0.001;
 double totalangle = 0;
-double dist = 140;//keep this number > p[i].w or the lines wont connect properly
+const double maxdist = 150;
+double dist = maxdist;//keep this number > p[i].w or the lines wont connect properly
 
 void display(){
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );//I do as the sample code says
@@ -75,14 +76,14 @@ void kbin(unsigned char key, int x, int y){
 		totalangle = 0;
 	}
 	else if(key == '+'){//+
-		if (dist > 140)
+		if (dist > maxdist)
 			dist--;
 	}
 	else if(key == '-'){//-
 		dist++;
 	}
 	else if(key == '='){//=
-		dist = 140;
+		dist = maxdist;
 	}
 }
 

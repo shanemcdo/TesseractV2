@@ -3,6 +3,7 @@
 #include"project.h"
 #include"rotate.h"
 #include"coord.h"
+#include"reset.h"
 using namespace std;
 
 coord c[16]= {
@@ -61,6 +62,8 @@ void kbin(unsigned char key, int x, int y){
 		speed = 0.001;
 	else if(key == '4')//4
 		speed = 0.005;
+	else if(key == 'r')//r
+		reset(c);
 }
 
 int main(int argc, char* argv[]){

@@ -1,5 +1,6 @@
 #include<gl/GLUT.h>
 #include"project.h"
+#include"coord.h"
 
 void cube(coord p[8])
 {

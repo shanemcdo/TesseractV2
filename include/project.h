@@ -1,4 +1,4 @@
 #include<gl/GLUT.h>
-#include"coord.h"
+class coord;
 
 void project(coord p[16]);

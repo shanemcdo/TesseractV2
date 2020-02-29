@@ -1,6 +1,8 @@
 #include<iostream>
 #include<gl/GLUT.h>
 #include"project.h"
+#include"rotate.h"
+#include"coord.h"
 using namespace std;
 
 coord c[16]= {
@@ -25,7 +27,8 @@ coord c[16]= {
 void display(){
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );//I do as the sample code says
 	
-	glRotatef(0.01, 0, 1, 0);
+	//glRotatef(0.01, 0, 1, 0);
+	//rotate(c);
 	project(c);
 
 	glutSwapBuffers();//I do as sample code commands

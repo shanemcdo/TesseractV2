@@ -1,2 +1,4 @@
 #include<gl/GLUT.h>
-#include"rotate.h"
+class coord;
+
+void rotate(coord c[]);

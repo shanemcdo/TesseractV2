@@ -29,7 +29,8 @@ double speed = 0.001;
 void display(){
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );//I do as the sample code says
 	
-	rotate(c, speed);
+	if (speed > 0)
+		rotate(c, speed);
 	project(c);
 
 	glutSwapBuffers();//I do as sample code commands
@@ -50,6 +51,16 @@ void kbin(unsigned char key, int x, int y){
 		glRotatef(1, 0, 0, 1);
 	else if(key == 'e')//e
 		glRotatef(-1, 0, 0, 1);
+	else if(key == '0')//0
+		speed = 0;
+	else if(key == '1')//1
+		speed = 0.0001;
+	else if(key == '2')//2
+		speed = 0.0005;
+	else if(key == '3')//3
+		speed = 0.001;
+	else if(key == '4')//4
+		speed = 0.005;
 }
 
 int main(int argc, char* argv[]){

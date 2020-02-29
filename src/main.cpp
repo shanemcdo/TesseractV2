@@ -6,6 +6,8 @@
 #include"reset.h"
 using namespace std;
 
+//TODO: fix shrink while rotating bug
+
 coord c[16]= {
 	{50, 50, 50, 50},
 	{-50, 50, 50, 50}, 

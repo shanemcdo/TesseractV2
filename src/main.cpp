@@ -61,7 +61,7 @@ void kbin(unsigned char key, int x, int y){
 	else if(key == '3')//3
 		speed = 0.001;
 	else if(key == '4')//4
-		speed = 0.005;
+		speed = 0.003;
 	else if(key == 'r')//r
 		reset(c);
 }

@@ -27,8 +27,8 @@ coord c[16]= {
 void display(){
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );//I do as the sample code says
 	
-	//glRotatef(0.01, 0, 1, 0);
-	//rotate(c);
+	glRotatef(0.01, 0, 1, 0);
+	rotate(c, 0.001);
 	project(c);
 
 	glutSwapBuffers();//I do as sample code commands

@@ -8,4 +8,10 @@ wasdqe - camera controls
 
 01234 - speed controls
 
+'-' - decrease distance between cubes
+
+'+' - increase distance between cubes
+
+'=' - set distance back to default (max)
+
 ESC - exit

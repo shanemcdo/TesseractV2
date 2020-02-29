@@ -41,11 +41,10 @@ void draw(coord p[16]){
 	}//for i
 }
 
-void project(coord p[16]){
+void project(coord p[16], double distance){
 	coord projected[16];
 	for (int i = 0; i < 16; i++){
-		double distance = 140;//keep this number > p[i].w or the lines wont connect properly
-		double w = 75 / (distance - p[i].w);
+		double w = distance * 0.75 / (distance - p[i].w);
 		projected[i].x = p[i].x * w;
 		projected[i].y = p[i].y * w;
 		projected[i].z = p[i].z * w;

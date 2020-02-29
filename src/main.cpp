@@ -27,6 +27,7 @@ coord c[16]= {
 
 double speed = 0.001;
 double totalangle = 0;
+double dist = 140;//keep this number > p[i].w or the lines wont connect properly
 
 void display(){
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );//I do as the sample code says
@@ -35,7 +36,7 @@ void display(){
 		rotate(c, speed);
 		totalangle += speed;
 	}
-	project(c);
+	project(c, dist);
 	if(totalangle >= 3.14159265){
 		reset(c);
 		totalangle = 0;
@@ -72,6 +73,16 @@ void kbin(unsigned char key, int x, int y){
 	else if(key == 'r'){//r
 		reset(c);
 		totalangle = 0;
+	}
+	else if(key == '+'){//+
+		if (dist > 140)
+			dist--;
+	}
+	else if(key == '-'){//-
+		dist++;
+	}
+	else if(key == '='){//=
+		dist = 140;
 	}
 }
 

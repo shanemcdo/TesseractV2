@@ -73,7 +73,6 @@ void kbin(unsigned char key, int x, int y){
 		reset(c);
 		totalangle = 0;
 	}
-
 }
 
 int main(int argc, char* argv[]){

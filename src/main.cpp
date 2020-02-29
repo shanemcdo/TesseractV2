@@ -6,8 +6,6 @@
 #include"reset.h"
 using namespace std;
 
-//TODO: fix shrink while rotating bug
-
 coord c[16]= {
 	{50, 50, 50, 50},
 	{-50, 50, 50, 50}, 
@@ -28,13 +26,20 @@ coord c[16]= {
 };
 
 double speed = 0.001;
+double totalangle = 0;
 
 void display(){
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );//I do as the sample code says
 	
-	if (speed > 0)
+	if (speed > 0){
 		rotate(c, speed);
+		totalangle += speed;
+	}
 	project(c);
+	if(totalangle >= 3.14159265){
+		reset(c);
+		totalangle = 0;
+	}
 
 	glutSwapBuffers();//I do as sample code commands
 }
@@ -64,8 +69,11 @@ void kbin(unsigned char key, int x, int y){
 		speed = 0.001;
 	else if(key == '4')//4
 		speed = 0.003;
-	else if(key == 'r')//r
+	else if(key == 'r'){//r
 		reset(c);
+		totalangle = 0;
+	}
+
 }
 
 int main(int argc, char* argv[]){

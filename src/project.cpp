@@ -2,8 +2,7 @@
 #include"project.h"
 #include"coord.h"
 
-void cube(coord p[8])
-{
+void cube(coord p[8]){
 	for(int i = 0;i < 4; i++)
 	{
 		//first square

@@ -7,7 +7,7 @@ coord::coord(){
 	w = 0;
 }
 
-coord::coord(double xx = 0, double yy = 0, double zz =0, double ww = 0){
+coord::coord(double xx, double yy, double zz, double ww){
 	x = xx;
 	y = yy;
 	z = zz;

@@ -1,27 +1,32 @@
-all: main.o  coord.o project.o rotate.o reset.o
-	g++ bin/*.o -o bin/test.exe -I include -lopenGL32 -lfreeGLUT 
-	@echo
+# Last updated 2021-9-11 by Shane McDonough
+CC=clang++#compiler
+EXTENSION=.cpp#c++ extension
+TARGET=bin/test#the output file
+FLAGS=-Wall -Iinclude -std=c++20 `pkg-config --cflags --libs gl glut`#flags to be passed to compiler
+INCLUDES=$(wildcard include/*)# get all include files
+OBJECTS=$(patsubst src/%$(EXTENSION),bin/%.o,$(wildcard src/*$(EXTENSION)))# in bin/%.o format, all of the objects to be compiled
+# previous line explained:
+# patsubst replaces the first arg template with the second arg template on the variable in the third arg
+# wildcard gets all the files that comply with its arg
+# in this case wildcard returns every file with the main extension in the src directory
+# e.g. src/main.cpp src/File1.cpp
+# patsub replaces the src and the extension
+# e.g. bin/main.o bin/File1/.o
 
-main.o: src/main.cpp
-	g++ src/main.cpp -c -o bin/main.o -I include -lopenGL32 -lfreeGLUT 
-
-coord.o: src/coord.cpp
-	g++ src/coord.cpp -c -o bin/coord.o -I include -lopenGL32 -lfreeGLUT 
+all: bin $(OBJECTS)# compile everything
+	$(CC) bin/*.o $(FLAGS) -o $(TARGET)
 	
-project.o: src/project.cpp
-	g++ src/project.cpp -c -o bin/project.o -I include -lopenGL32 -lfreeGLUT 
+bin/%.o: src/%$(EXTENSION) $(INCLUDES)# create object file for %
+	$(CC) $< $(FLAGS) -c -o $@
 
-rotate.o: src/rotate.cpp
-	g++ src/rotate.cpp -c -o bin/rotate.o -I include -lopenGL32 -lfreeGLUT 
+clean:# remove contents of bin
+	rm -rf bin
 
-reset.o: src/reset.cpp
-	g++ src/reset.cpp -c -o bin/reset.o -I include -lopenGL32 -lfreeGLUT 
-
-clean:
-	rm bin/*
-
-new:
+bin:# create folder bin
 	mkdir bin
 
-test: all
-	bin/test.exe
+test: all# compile everything then run executible
+	$(TARGET)
+
+release: clean
+	make TARGET=bin/tess
